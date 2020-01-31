@@ -7,6 +7,20 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  componentes: Componente[] = [
+    {
+      icon: 'american-football',
+      name: 'Segment',
+      redirectTo: '/segment'
+    }
+  ];
+
   constructor() {}
 
+}
+
+interface Componente {
+  icon: string;
+  name: string;
+  redirectTo: string;
 }

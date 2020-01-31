@@ -1,0 +1,11 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>segment</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <app-preguntas *ngIf="modo==0" [preguntas]="preguntas" (emitresp)="Cambiarmodo($event)"></app-preguntas>
+    <app-resultados *ngIf="modo==1" [respreguntas]="preguntas"></app-resultados>
+</ion-content>

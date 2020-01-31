@@ -1,0 +1,20 @@
+<ion-segment #ionSegment scrollable>
+    <ion-segment-button *ngFor="let p of preguntas; let i = index" (click)="getIndex(i)" [ngClass]="{'segment-button-checked':posicion==i}">
+        <ion-icon *ngIf="p.respuser != 0" name="square">{{ i+1 }}</ion-icon>
+        <ion-icon *ngIf="p.respuser == 0" name="square-outline">{{ i }}</ion-icon>
+    </ion-segment-button>
+</ion-segment>
+
+
+<ion-slides #slides1 (ionSlideWillChange)="cambia($event)">
+    <ion-slide *ngFor="let pre of preguntas;  let i = index">
+
+        <app-pregunta [pre]="pre" [indice]="i" (respuesta)="escuchaResp($event)"></app-pregunta>
+
+    </ion-slide>
+    <ion-slide>
+        <ion-button (click)="finExamen()" class="mb20" expand="full" color="primary" fill="clear">
+            Finalizar Examen
+        </ion-button>
+    </ion-slide>
+</ion-slides>

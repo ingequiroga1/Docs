@@ -1,0 +1,8 @@
+<ion-card *ngFor="let rp of respreguntas; let i = index;">
+    <ion-card-header>
+        <ion-label>Pregunta {{ i+1 }}</ion-label>
+    </ion-card-header>
+    <ion-card-content>
+        {{ rp.respuestas[rp.respuser-1].desc }}
+    </ion-card-content>
+</ion-card>
