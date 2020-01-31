@@ -1,8 +1,14 @@
+<ion-text align-items-center color="secondary">
+    <h1>{{calif | percent}}</h1>
+</ion-text>
+
 <ion-card *ngFor="let rp of respreguntas; let i = index;">
-    <ion-card-header>
-        <ion-label>Pregunta {{ i+1 }}</ion-label>
-    </ion-card-header>
     <ion-card-content>
-        {{ rp.respuestas[rp.respuser-1].desc }}
+        <app-pregunta [pre]="rp" [indice]="i" [esCaptura]="true">
+
+        </app-pregunta>
+        <!--
+          <ion-item>{{ rp.respuestas[rp.respuser-1].desc }}</ion-item>
+        -->
     </ion-card-content>
 </ion-card>

@@ -8,9 +8,12 @@ import { Pregunta } from '../../interfases/interfases';
 })
 export class ResultadosComponent implements OnInit {
 @Input() respreguntas: Pregunta[] = [];
+@Input() calif: number;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.respreguntas);
+  }
 
 }

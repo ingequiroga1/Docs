@@ -7,5 +7,5 @@
 
 <ion-content>
     <app-preguntas *ngIf="modo==0" [preguntas]="preguntas" (emitresp)="Cambiarmodo($event)"></app-preguntas>
-    <app-resultados *ngIf="modo==1" [respreguntas]="preguntas"></app-resultados>
+    <app-resultados *ngIf="modo==1" [respreguntas]="preguntas" [calif]="calif"></app-resultados>
 </ion-content>

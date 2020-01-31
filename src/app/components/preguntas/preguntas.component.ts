@@ -10,8 +10,10 @@ import { Pregunta } from 'src/app/interfases/interfases';
 export class PreguntasComponent implements OnInit {
   respuesta: number;
   posicion: number;
+  aciertos = 0;
   @Input() preguntas: Pregunta[] = [];
   @Output() emitresp = new EventEmitter();
+
 
   @ViewChild('slides1', { static: false }) slides: IonSlides;
 
@@ -32,16 +34,15 @@ export class PreguntasComponent implements OnInit {
   }
 
   escuchaResp(resp) {
-    debugger;
     this.preguntas[resp.ind].respuser = resp.res;
     if (resp.res === this.preguntas[resp.ind].resp_correcta) {
       this.preguntas[resp.ind].correcta = true;
+      this.aciertos++;
     }
-    console.log(this.preguntas);
   }
 
   finExamen(){
-    console.log(1);
-    this.emitresp.emit(1);
+    console.log(this.aciertos);
+    this.emitresp.emit(this.aciertos);
   }
 }
