@@ -12,6 +12,7 @@ export interface Pregunta {
     desccm: string;
     respuser: number;
     correcta: boolean;
+    subtema: string;
   }
 
 export interface Respuesta {

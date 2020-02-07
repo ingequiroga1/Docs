@@ -5,12 +5,11 @@
     </ion-segment-button>
 </ion-segment>
 
+<h3>{{horas}}:{{minutos}}</h3>
 
 <ion-slides #slides1 (ionSlideWillChange)="cambia($event)">
     <ion-slide *ngFor="let pre of preguntas;  let i = index">
-
         <app-pregunta [pre]="pre" [indice]="i" (respuesta)="escuchaResp($event)"></app-pregunta>
-
     </ion-slide>
     <ion-slide>
         <ion-button (click)="finExamen()" class="mb20" expand="full" color="primary" fill="clear">

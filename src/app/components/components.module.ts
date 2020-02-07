@@ -7,13 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { ModalInfoPage } from '../pages/modal-info/modal-info.page'
 import { ModalInfoPageModule } from '../pages/modal-info/modal-info.module';
 
+import { PipeTiempo } from '../pipes/tiempo.pipe';
+
+
 
 
 @NgModule({
   declarations: [
     PreguntasComponent,
     PreguntaComponent,
-    ResultadosComponent
+    ResultadosComponent,
+    PipeTiempo
   ],
   entryComponents:[
     ModalInfoPage

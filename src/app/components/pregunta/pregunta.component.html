@@ -2,9 +2,9 @@
     <ion-radio-group #ionradiogroup>
         <ion-row>
             <ion-col size="12">
-                <ion-card>
+                <ion-card *ngIf="pre.desccm">
                     <ion-card-header color="primary">
-                        Caso Medico
+                        {{pre.subtema}}
                     </ion-card-header>
                     <ion-card-content>{{ pre.desccm }}</ion-card-content>
                 </ion-card>
