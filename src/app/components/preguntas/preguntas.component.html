@@ -1,3 +1,7 @@
+<ion-toolbar>
+    <ion-title>{{minutos}}:{{segundos}}</ion-title>
+</ion-toolbar>
+
 <ion-segment #ionSegment scrollable>
     <ion-segment-button *ngFor="let p of preguntas; let i = index" (click)="getIndex(i)" [ngClass]="{'segment-button-checked':posicion==i}">
         <ion-icon *ngIf="p.respuser != 0" name="square">{{ i+1 }}</ion-icon>
@@ -5,7 +9,7 @@
     </ion-segment-button>
 </ion-segment>
 
-<h3>{{horas}}:{{minutos}}</h3>
+
 
 <ion-slides #slides1 (ionSlideWillChange)="cambia($event)">
     <ion-slide *ngFor="let pre of preguntas;  let i = index">

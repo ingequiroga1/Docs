@@ -11,10 +11,25 @@ import { Time } from '@angular/common';
 export class PreguntasComponent implements OnInit {
   respuesta: number;
   posicion: number;
-  aciertos = 0; 
-  tiempo: Time;
-  minutos = '00';
-  horas = '00';
+  aciertos = 0;
+  minutos = 1;
+  segundos = 60;
+  
+
+  interval = setInterval(() => {
+    this.segundos--;
+    console.log(this.segundos);
+    if (this.minutos === 0 && this.segundos === 0) {
+      clearInterval(this.interval);
+      this.emitresp.emit(this.aciertos);
+    } else {
+      if (this.segundos === 0) {
+        this.minutos = this.minutos - 1;
+        this.segundos = 59;
+      }
+    }
+   }, 1000);
+
   @Input() preguntas: Pregunta[] = [];
   @Output() emitresp = new EventEmitter();
 
@@ -23,36 +38,7 @@ export class PreguntasComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    let seg = 0;
-    this.tiempo = {hours: 0, minutes: 0};
-    setInterval(() => {
-      seg++;
-      console.log(seg);
-      if (seg === 60) {
-        if( this.tiempo.minutes < 60 ){
-          this.tiempo.minutes = this.tiempo.minutes + 1;
-          if(this.tiempo.minutes < 10){
-            this.minutos = '0' + this.tiempo.minutes;
-          }
-          else{
-            this.minutos = this.tiempo.minutes.toString();
-          }
-        }
-        else
-        {
-          if(this.tiempo.hours < 10){
-            this.horas = '0' + this.tiempo.hours;
-          }
-          else{
-            this.horas = this.tiempo.hours.toString();
-          }
-          this.tiempo.hours = this.tiempo.hours + 1;
-        }
-        seg = 0;
-      }
-      }, 1000);
-  }
+  ngOnInit() {}
 
   cambia(event) {
     // console.log(event.target.swiper.activeIndex);
@@ -74,8 +60,9 @@ export class PreguntasComponent implements OnInit {
     }
   }
 
-  finExamen(){
-    console.log(this.aciertos);
+  finExamen() {
+    console.log(this.preguntas);
     this.emitresp.emit(this.aciertos);
+    clearInterval(this.interval);
   }
 }
